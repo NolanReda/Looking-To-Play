@@ -1,0 +1,44 @@
+.navbar {
+  background-color: #303358;
+  display: flex;
+  align-items: center;
+}
+
+.col-half {
+  flex-basis: 50%;
+  padding: 0 10px;
+  display: flex;
+}
+
+.spacer,
+.find-teammates,
+.player-stats {
+  color: #ffbd6c;
+  text-decoration: none;
+}
+
+.spacer,
+.find-teammates,
+.player-stats:visited {
+  text-decoration: none;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.logo-only {
+  width: 80px;
+}
+
+.just-end {
+  justify-content: end;
+}
+
+.mar-5 {
+  margin: 0 5px;
+}
+
+.align-cent {
+  align-items: center;
+}
