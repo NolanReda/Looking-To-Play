@@ -1,7 +1,35 @@
+.background {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000123;
+  position: fixed;
+}
+
+.background::after {
+  content: "";
+  background-image: url("images/background.jpg");
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+}
+
 .navbar {
   background-color: #303358;
   display: flex;
   align-items: center;
+}
+
+.col-whole {
+  text-align: center;
 }
 
 .col-half {
@@ -35,10 +63,60 @@
   justify-content: end;
 }
 
+.just-cent {
+  justify-content: center;
+}
+
 .mar-5 {
   margin: 0 5px;
 }
 
 .align-cent {
   align-items: center;
+}
+
+h1 {
+  color: white;
+}
+
+.row-fifth {
+  flex-basis: 20%;
+}
+
+.row-three-fifth {
+  flex-basis: 60%;
+}
+
+.region {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.graph-faceit-on,
+.graph-mm-on {
+  color: white;
+  background-color: #272829 !important;
+  margin: 0 10px;
+}
+
+.graph-mm-off,
+.graph-faceit-off {
+  color: white;
+  background-color: #d45500 !important;
+  margin: 0 10px;
+}
+
+.flat-logo {
+  width: 300px;
+  margin-right: 25px;
+}
+
+@media screen and (max-width: 700px) {
+  .flat-logo {
+    display: none;
+  }
 }
