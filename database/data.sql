@@ -1,7 +1,7 @@
 insert into "regionID" ("regionName")
      values ('NA West'),
             ('NA East'),
-            ('SAWest'),
+            ('SA West'),
             ('SA East'),
             ('EU East'),
             ('EU Central'),

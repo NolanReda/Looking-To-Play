@@ -1,8 +1,8 @@
 .background {
-  height: 100vh;
+  height: 140vh;
   width: 100vw;
   background-color: #000123;
-  position: fixed;
+  position: absolute;
 }
 
 .background::after {
@@ -79,12 +79,7 @@ h1 {
   color: white;
 }
 
-.row-fifth {
-  flex-basis: 20%;
-}
-
 .row-three-fifth {
-  flex-basis: 60%;
   display: flex;
   justify-content: center;
 }

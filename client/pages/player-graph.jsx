@@ -31,7 +31,7 @@ export default class PlayerGraph extends React.Component {
 
   render() {
     const { currentRegion } = this.state;
-    const chartValue = [currentRegion];
+    const chartValue = { currentRegion };
     // console.log(currentRegion);
     return (
         <ChartContext.Provider value={chartValue}>
@@ -52,6 +52,8 @@ export default class PlayerGraph extends React.Component {
                 <select className='dropdown' value={this.state.currentRegion} onChange={this.handleSelect}>
                   <option value="NA West">NA West</option>
                   <option value="NA East">NA East</option>
+                  <option value="SA West">SA West</option>
+                  <option value="SA East">SA East</option>
                   <option value="EU West">EU West</option>
                   <option value="EU Central">EU Central</option>
                   <option value="EU East">EU East</option>

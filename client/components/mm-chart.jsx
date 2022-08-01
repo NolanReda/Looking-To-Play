@@ -20,28 +20,36 @@ export default class MmChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      region: 'NA West',
+      region: '',
       rankInputs: []
     };
     this.chartRef = React.createRef();
   }
 
   componentDidMount() {
+    this.loadData();
+  }
+
+  loadData() {
     const { currentRegion } = this.context;
     fetch(`api/users/${currentRegion}`)
       .then(res => res.json())
       .then(result => {
-        const ranksData = [0, 0, 0, 17, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        const ranksData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         for (let i = 0; i < result.length; i++) {
           if (result[i].rank < 19) {
             ranksData[result[i].rank]++;
           }
         }
-        this.setState({ rankInputs: ranksData });
+        this.setState({ rankInputs: ranksData, region: currentRegion });
       });
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (this.state.region !== this.context.currentRegion) {
+      this.loadData();
+      return;
+    }
     if (this.state.rankInputs === prevState.rankInputs) {
       return;
     }
