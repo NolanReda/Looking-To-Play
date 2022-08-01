@@ -1,0 +1,10 @@
+working steamAPI get request:
+--body -v get http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/ appid==730 key==E2D3379379D74F48FE181E7411AC6704 steamid==76561198077457151 > results.json
+
+
+headshot% = total_kills_headshot / total_kills
+K/D = total kills / total deaths
+Win/Loss = total won / total played
+most played = add all comp pool maps to array and use math.ceil
+
+-----------------------------Needed for user data-------------------------------

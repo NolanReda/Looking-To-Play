@@ -1,0 +1,135 @@
+.background {
+  height: 140vh;
+  width: 100vw;
+  background-color: #000123;
+  position: absolute;
+}
+
+.background::after {
+  content: "";
+  background-image: url("images/background.jpg");
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+}
+
+.navbar {
+  background-color: #303358;
+  display: flex;
+  align-items: center;
+}
+
+.col-whole {
+  text-align: center;
+}
+
+.col-half {
+  flex-basis: 50%;
+  padding: 0 10px;
+  display: flex;
+}
+
+.spacer,
+.find-teammates,
+.player-stats {
+  color: #ffbd6c;
+  text-decoration: none;
+}
+
+.spacer,
+.find-teammates,
+.player-stats:visited {
+  text-decoration: none;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.logo-only {
+  width: 80px;
+}
+
+.just-end {
+  justify-content: end;
+}
+
+.just-cent {
+  justify-content: center;
+}
+
+.mar-5 {
+  margin: 0 5px;
+}
+
+.align-cent {
+  align-items: center;
+}
+
+h1 {
+  color: white;
+}
+
+.row-three-fifth {
+  display: flex;
+  justify-content: center;
+}
+
+.region {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.graph-faceit-on,
+.graph-mm-on {
+  color: white;
+  background-color: #272829 !important;
+  margin: 0 10px;
+}
+
+.graph-mm-off,
+.graph-faceit-off {
+  color: white;
+  background-color: #d45500 !important;
+  margin: 0 10px;
+}
+
+.flat-logo {
+  width: 300px;
+  margin-right: 25px;
+}
+
+select {
+  margin-top: 25px;
+  background-color: #d45500;
+  color: white;
+  border-radius: 6px;
+  height: 40px;
+  width: 120px;
+}
+
+@media screen and (max-width: 700px) {
+  .flat-logo {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  canvas {
+    height: 500px !important;
+    width: 820px !important;
+  }
+}
