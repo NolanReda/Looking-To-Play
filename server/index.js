@@ -33,7 +33,7 @@ app.get('/api/users/:region', (req, res, next) => {
   const region = req.params.region;
   const sql = `
     select "r"."rankId" as "rank",
-            "u"."userId" as user,
+            "u"."userId" as userId,
             "u"."regionId" as "region",
             "c"."rankName" as "name"
       from "userRanks" as "r"

@@ -85,6 +85,8 @@ h1 {
 
 .row-three-fifth {
   flex-basis: 60%;
+  display: flex;
+  justify-content: center;
 }
 
 .region {
@@ -115,8 +117,24 @@ form {
   margin-right: 25px;
 }
 
+select {
+  margin-top: 25px;
+  background-color: #d45500;
+  color: white;
+  border-radius: 6px;
+  height: 40px;
+  width: 120px;
+}
+
 @media screen and (max-width: 700px) {
   .flat-logo {
     display: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  canvas {
+    height: 500px !important;
+    width: 820px !important;
   }
 }

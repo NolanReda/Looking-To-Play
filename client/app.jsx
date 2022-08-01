@@ -22,6 +22,9 @@ export default class App extends React.Component {
     if (path === 'player-stats') {
       return <PlayerGraph />;
     }
+    //   if (path === 'profile') {
+
+  //   }
   }
 
   render() {

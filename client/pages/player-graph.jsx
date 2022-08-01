@@ -2,6 +2,8 @@ import React from 'react';
 // import AppContext from '../lib/app-context';
 import MmChart from '../components/mm-chart';
 import FaceitChart from '../components/faecit-chart';
+// import Dropdown from 'react-dropdown';
+import ChartContext from '../lib/chart-context';
 
 export default class PlayerGraph extends React.Component {
   constructor(props) {
@@ -12,6 +14,7 @@ export default class PlayerGraph extends React.Component {
     };
     this.handleMmButton = this.handleMmButton.bind(this);
     this.handleFaceitButton = this.handleFaceitButton.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleMmButton(event) {
@@ -22,8 +25,16 @@ export default class PlayerGraph extends React.Component {
     this.setState({ buttons: false });
   }
 
+  handleSelect(event) {
+    this.setState({ currentRegion: event.target.value });
+  }
+
   render() {
+    const { currentRegion } = this.state;
+    const chartValue = [currentRegion];
+    // console.log(currentRegion);
     return (
+        <ChartContext.Provider value={chartValue}>
           <div className='row-1'>
             <div className='col-whole'>
               <div className='row-fifth'>
@@ -38,23 +49,23 @@ export default class PlayerGraph extends React.Component {
                   {this.state.buttons ? <MmChart /> : <FaceitChart />}
               </div>
               <div className='row-fifth'>
-                  <ul className='dropdown-menu'>
-                    <li><a className="dropdown-item" href="#">NA West</a></li>
-                    <li><a className="dropdown-item" href="#">NA East</a></li>
-                    <li><a className="dropdown-item" href="#">SA West</a></li>
-                    <li><a className="dropdown-item" href="#">SA East</a></li>
-                    <li><a className="dropdown-item" href="#">EU East</a></li>
-                    <li><a className="dropdown-item" href="#">EU Central</a></li>
-                    <li><a className="dropdown-item" href="#">EU West</a></li>
-                    <li><a className="dropdown-item" href="#">CIS</a></li>
-                    <li><a className="dropdown-item" href="#">Middle East</a></li>
-                    <li><a className="dropdown-item" href="#">Asia North</a></li>
-                    <li><a className="dropdown-item" href="#">Asia South</a></li>
-                    <li><a className="dropdown-item" href="#">Ocieana</a></li>
-                  </ul>
+                <select className='dropdown' value={this.state.currentRegion} onChange={this.handleSelect}>
+                  <option value="NA West">NA West</option>
+                  <option value="NA East">NA East</option>
+                  <option value="EU West">EU West</option>
+                  <option value="EU Central">EU Central</option>
+                  <option value="EU East">EU East</option>
+                  <option value="CIS">CIS</option>
+                  <option value="Middle East">Middle East</option>
+                  <option value="Asia North">Asia North</option>
+                  <option value="Asia South">Asia South</option>
+                  <option value="Ocieana">Ocieana</option>
+                </select>
               </div>
             </div>
           </div>
+      </ChartContext.Provider>
     );
   }
 }
+/* <Dropdown options={options} onChange={this.select} value={defaultOption} placeholder='Select a region' /> */

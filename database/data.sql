@@ -1,16 +1,16 @@
 insert into "regionID" ("regionName")
-     values ('naWest'),
-            ('naEast'),
-            ('saWest'),
-            ('saEast'),
-            ('euEast'),
-            ('euCentral'),
-            ('euWest'),
-            ('cis'),
-            ('middleEast'),
-            ('asiaNorth'),
-            ('asiaSouth'),
-            ('ocieana');
+     values ('NA West'),
+            ('NA East'),
+            ('SAWest'),
+            ('SA East'),
+            ('EU East'),
+            ('EU Central'),
+            ('EU West'),
+            ('CIS'),
+            ('Middle East'),
+            ('Asia North'),
+            ('Asia South'),
+            ('Ocieana');
 
 insert into "Users" ("username", "regionId", "timeAvailable", "profilePicture", "recentStats")
 values ('user1', '1', 'afternoon', null, null),

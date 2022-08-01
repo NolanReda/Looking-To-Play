@@ -28,16 +28,28 @@ export default class FaceitChart extends React.Component {
       datasets: [{
         data: [12, 45, 23, 39, 12, 45, 23, 39, 12, 45, 23, 39, 12, 45, 23, 39, 12, 45],
         backgroundColor: [
-          '#A79BA0',
-          'rgba(255, 159, 64)',
-          'rgba(255, 205, 86)',
-          'rgba(75, 192, 192)'
+          '#FFFFFF',
+          '#1FE101',
+          '#1CBF05',
+          '#FED603',
+          '#FED300',
+          '#FDD000',
+          '#F8CB01',
+          '#FD6E1A',
+          '#EF6716',
+          '#E72821'
         ],
         borderColor: [
-          'rgba(25, 99, 12)',
-          'rgba(255, 159, 64)',
-          'rgba(255, 205, 86)',
-          'rgba(75, 192, 192)'
+          '#FFFFFF',
+          '#1FE101',
+          '#1CBF05',
+          '#FED603',
+          '#FED300',
+          '#FDD000',
+          '#F8CB01',
+          '#FD6E1A',
+          '#EF6716',
+          '#E72821'
         ],
         borderWidth: 1
       }]
@@ -46,7 +58,8 @@ export default class FaceitChart extends React.Component {
       type: 'bar',
       data,
       options: {
-        indexAxis: 'y'
+        indexAxis: 'y',
+        responsive: true
       }
     };
     const myChart = new Chart(this.chartRef.current, config);
