@@ -40,7 +40,7 @@ export default class PlayerGraph extends React.Component {
               <div className='row-fifth'>
                 <h1 className='region'>{this.state.currentRegion}</h1>
                 <h1>Player Rank Spread</h1>
-                <form action="stat" className='just-cent'>
+                <form action="stat" className=' chart-form just-cent'>
                   <button onClick={this.handleMmButton} type='button' className={`btn graph-mm-${this.state.buttons ? 'on' : 'off'}`}>Matchmaking</button>
                   <button onClick={this.handleFaceitButton} type='button' className={`btn graph-faceit-${this.state.buttons ? 'off' : 'on'}`}>Faceit</button>
                 </form>

@@ -51,6 +51,10 @@
   text-decoration: none;
 }
 
+.dis-flex {
+  display: flex;
+}
+
 .font-22 {
   font-size: 22px;
 }
@@ -88,7 +92,7 @@ h1 {
   text-align: center;
 }
 
-form {
+.chart-form {
   display: flex;
   justify-content: space-around;
 }
@@ -119,6 +123,33 @@ select {
   border-radius: 6px;
   height: 40px;
   width: 120px;
+}
+
+.stacked-bg {
+  width: 27rem;
+}
+
+.border-none {
+  border: none;
+}
+
+.bg-none {
+  background: none;
+}
+
+.sign {
+  color: #639cda;
+  font-size: 34px;
+}
+
+.form-label {
+  font-size: x-large;
+  margin-right: 10rem;
+  color: #639cda;
+}
+
+.placeholder {
+  color: #d1d7db !important;
 }
 
 @media screen and (max-width: 700px) {

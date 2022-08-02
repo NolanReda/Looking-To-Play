@@ -5,6 +5,7 @@ import parseRoute from './lib/parse-route';
 import AppContext from './lib/app-context';
 import PlayerGraph from './pages/player-graph';
 import PageContainer from './components/page-container';
+import Auth from './pages/Auth';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -29,9 +30,9 @@ export default class App extends React.Component {
     if (path === 'player-stats') {
       return <PlayerGraph />;
     }
-    //   if (path === 'profile') {
-
-  //   }
+    if (path === 'sign-up') {
+      return <Auth />;
+    }
   }
 
   render() {
