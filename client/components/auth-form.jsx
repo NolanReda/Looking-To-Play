@@ -32,6 +32,7 @@ export default class AuthForm extends React.Component {
       .then(res => res.json())
       .then(result => {
       });
+    this.setState({ username: '', password: '', region: '', timeAvailable: '' });
     event.target.reset();
   }
 
