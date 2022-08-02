@@ -1,6 +1,6 @@
 .background {
   height: 140vh;
-  width: 100vw;
+  width: 99vw;
   background-color: #000123;
   position: absolute;
 }
@@ -76,7 +76,7 @@
 }
 
 h1 {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .row-three-fifth {
