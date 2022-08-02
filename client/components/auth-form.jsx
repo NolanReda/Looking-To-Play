@@ -11,6 +11,10 @@ export default class AuthForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.userRef = React.createRef();
+    this.passRef = React.createRef();
+    this.timeRef = React.createRef();
+    this.regRef = React.createRef();
   }
 
   handleChange(event) {
@@ -20,6 +24,23 @@ export default class AuthForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const { action } = this.props;
+    const req = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state)
+    };
+    fetch(`/api/auth/${action}`, req)
+      .then(res => res.json())
+      .then(result => {
+      });
+    this.setState({ username: '', password: '', region: '', timeAvailable: '' });
+    this.userRef.current.value = '';
+    this.passRef.current.value = '';
+    this.timeRef.current.value = 'placeholder';
+    this.regRef.current.value = 'placeholder';
   }
 
   render() {
@@ -29,19 +50,19 @@ export default class AuthForm extends React.Component {
           <label className='form-label' htmlFor="username">
             Username
           </label>
-          <input onChange={this.handleChange} placeholder='Username' className='form-control' required autoFocus type="text" name="username" id="username" />
+          <input onChange={this.handleChange} ref={this.userRef} placeholder='Username' className='form-control' required autoFocus type="text" name="username" id="username" />
         </div>
         <div className='mb-3'>
           <label className='form-label' htmlFor="password">
             Password
           </label>
-          <input onChange={this.handleChange} placeholder='Password' className='form-control' required autoFocus type="password" name="username" id="password" />
+          <input onChange={this.handleChange} ref={this.passRef} placeholder='Password' className='form-control' required autoFocus type="password" name="username" id="password" />
         </div>
         <div className='mb-3'>
           <label className='form-label' htmlFor="time-available">
             Time Available
           </label>
-          <select onChange={this.handleChange} className='mt-0 form-select' name="time-available" id="time-available" required>
+          <select onChange={this.handleChange} ref={this.timeRef} className='mt-0 form-select' name="timeAvailable" id="timeAvailable" required>
             <option className='placeholder' value="placeholder">Select Time</option>
             <option value="morning">Morning</option>
             <option value="afternoon">Afternoon</option>
@@ -53,7 +74,7 @@ export default class AuthForm extends React.Component {
           <label className='form-label' htmlFor="region">
             Region
           </label>
-          <select onChange={this.handleChange} className='mt-0 form-select' name="time-available" id="region" placeholder='Select Region'>
+          <select onChange={this.handleChange} ref={this.regRef} className='mt-0 form-select' name="time-available" id="region" placeholder='Select Region'>
             <option value="placeholder">Select Region</option>
             <option value="1">NA West</option>
             <option value="2">NA East</option>
