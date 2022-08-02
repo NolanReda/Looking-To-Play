@@ -5,7 +5,6 @@ import parseRoute from './lib/parse-route';
 import AppContext from './lib/app-context';
 import PlayerGraph from './pages/player-graph';
 import PageContainer from './components/page-container';
-// import { response as data } from './components/mm-chart';
 
 export default class App extends React.Component {
   constructor(props) {

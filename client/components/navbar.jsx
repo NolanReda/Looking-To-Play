@@ -6,7 +6,7 @@ export default class Navbar extends React.Component {
     return (
       <nav className='navbar'>
         <div className='col-half align-cent'>
-          <img className='flat-logo' src="images/logos/flat.png" alt="flat-logo" />
+          <img className='flat-logo' src="images/logos/flat-bg.png" alt="flat-logo" />
           <a className='player-stats' href="#player-stats">Player Stats</a>
           <a className='spacer font-22 mar-5'> | </a>
           <a className='find-teammates'>Find Teammates</a>
