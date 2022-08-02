@@ -5,7 +5,7 @@ import parseRoute from './lib/parse-route';
 import AppContext from './lib/app-context';
 import PlayerGraph from './pages/player-graph';
 import PageContainer from './components/page-container';
-// import { response as data } from './components/mm-chart';
+import Auth from './pages/Auth';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -17,14 +17,22 @@ export default class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({
+        route: parseRoute(window.location.hash)
+      });
+    });
+  }
+
   renderPage() {
     const { path } = this.state.route;
     if (path === 'player-stats') {
       return <PlayerGraph />;
     }
-    //   if (path === 'profile') {
-
-  //   }
+    if (path === 'sign-up') {
+      return <Auth />;
+    }
   }
 
   render() {
