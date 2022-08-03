@@ -32,7 +32,12 @@ export default class MmChart extends React.Component {
 
   loadData() {
     const { currentRegion } = this.context;
-    fetch(`api/users/${currentRegion}`)
+    const req = {
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    };
+    fetch(`api/users/${currentRegion}`, req)
       .then(res => res.json())
       .then(result => {
         const ranksData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];

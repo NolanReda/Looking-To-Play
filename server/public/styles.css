@@ -94,7 +94,7 @@ h1 {
 
 .chart-form {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .graph-faceit-on,

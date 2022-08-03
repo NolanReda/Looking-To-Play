@@ -33,6 +33,8 @@ export default class AuthForm extends React.Component {
       .then(result => {
         if (action === 'sign-up') {
           window.location.hash = 'sign-in';
+        } else if (result.user && result.token) {
+          this.props.onSignIn(result);
         }
       });
     this.setState({ username: '', password: '', region: '', timeAvailable: '' });
@@ -97,7 +99,7 @@ export default class AuthForm extends React.Component {
         </>
   }
         <div className='dis-flex just-cent'>
-          <button onSubmit={this.handleSubmit} className='btn btn-info btn-lg mt-5' type="submit">{altBtnText}</button>
+          <button className='btn btn-info btn-lg mt-5' type="submit">{altBtnText}</button>
         </div>
       </form>
     );

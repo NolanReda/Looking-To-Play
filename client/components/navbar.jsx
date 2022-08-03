@@ -27,7 +27,7 @@ export default class Navbar extends React.Component {
           }
         </div>
         <div className='col-half just-end'>
-          <a href='#profile'><img className='logo-only' src="images/logos/round.png" alt="round-logo" /></a>
+          <a href={user ? '#' : null}><img className='logo-only' src="images/logos/round.png" alt="round-logo" /></a>
         </div>
     </nav>
     );
