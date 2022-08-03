@@ -37,6 +37,12 @@ export default class AuthForm extends React.Component {
   }
 
   render() {
+
+    const { action } = this.props;
+    const altBtnText = action === 'sign-in'
+      ? 'Sign In'
+      : 'Sign Up';
+
     return (
       <form onSubmit={this.handleSubmit}>
         <div className='mb-3'>
@@ -51,6 +57,8 @@ export default class AuthForm extends React.Component {
           </label>
           <input onChange={this.handleChange} placeholder='Password' className='form-control' required autoFocus type="password" name="username" id="password" />
         </div>
+      { action === 'sign-up' &&
+        <>
         <div className='mb-3'>
           <label className='form-label' htmlFor="time-available">
             Time Available
@@ -83,8 +91,10 @@ export default class AuthForm extends React.Component {
             <option value="12">Ocieana</option>
           </select>
         </div>
+        </>
+  }
         <div className='dis-flex just-cent'>
-          <button onSubmit={this.handleSubmit} className='btn btn-info btn-lg mt-5' type="submit">Sign Up</button>
+          <button onSubmit={this.handleSubmit} className='btn btn-info btn-lg mt-5' type="submit">{altBtnText}</button>
         </div>
       </form>
     );
