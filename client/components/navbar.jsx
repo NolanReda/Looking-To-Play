@@ -22,12 +22,12 @@ export default class Navbar extends React.Component {
             <>
               <a className='player-stats' href="#sign-up">Sign Up</a>
               <a className='spacer font-22 mar-5'> | </a>
-              <a className='find-teammates'>Sign In</a>
+              <a className='find-teammates' href='#sign-in'>Sign In</a>
             </>
           }
         </div>
         <div className='col-half just-end'>
-          <a href='#profile'><img className='logo-only' src="images/logos/round.png" alt="round-logo" /></a>
+          <a href={user ? '#' : null}><img className='logo-only' src="images/logos/round.png" alt="round-logo" /></a>
         </div>
     </nav>
     );

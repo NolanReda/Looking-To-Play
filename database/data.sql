@@ -12,7 +12,7 @@ insert into "regionID" ("regionName")
             ('Asia South'),
             ('Ocieana');
 
-insert into "Users" ("username", "regionId", "timeAvailable", "profilePicture", "recentStats", "password")
+insert into "Users" ("username", "regionId", "timeAvailable", "profilePicture", "recentStats", "hashedPassword")
 values ('user1', '1', 'afternoon', null, null, 'blank'),
        ('user2', '1', 'afternoon', null, null, 'blank'),
        ('user3', '1', 'afternoon', null, null, 'blank'),
