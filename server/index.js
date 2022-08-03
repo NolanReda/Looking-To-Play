@@ -5,6 +5,7 @@ const express = require('express');
 const ClientError = require('./client-error');
 const errorMiddleware = require('./error-middleware');
 const argon2 = require('argon2');
+const authorizationMiddleware = require('./authorization-middleware');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -36,7 +37,7 @@ app.post('/api/auth/sign-up', (req, res, next) => {
     .hash(password)
     .then(hashedPassword => {
       const sql = `
-      insert into "Users" ("username", "password", "regionId", "timeAvailable")
+      insert into "Users" ("username", "hashedPassword", "regionId", "timeAvailable")
       values ($1, $2, $3, $4)
       returning "userId", "username"
   `;
@@ -49,6 +50,19 @@ app.post('/api/auth/sign-up', (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+app.post('/api/auth/sign-in', (req, res, next) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    throw new ClientError(401, 'invalid login');
+  }
+  // const sql = `
+  //   select "userId",
+  //          "
+  // `;
+});
+
+app.use(authorizationMiddleware);
 
 app.get('/api/users/:region', (req, res, next) => {
   const region = req.params.region;

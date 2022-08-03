@@ -31,6 +31,9 @@ export default class AuthForm extends React.Component {
     fetch(`/api/auth/${action}`, req)
       .then(res => res.json())
       .then(result => {
+        if (action === 'sign-up') {
+          window.location.hash = 'sign-in';
+        }
       });
     this.setState({ username: '', password: '', region: '', timeAvailable: '' });
     event.target.reset();

@@ -13,7 +13,7 @@ CREATE TABLE "Users" (
 	"recentStats" TEXT,
 	"profilePicture" TEXT,
 	"username" TEXT NOT NULL,
-  "password" TEXT not NULL,
+  "hashedPassword" TEXT not NULL,
 	CONSTRAINT "Users_pk" PRIMARY KEY ("userId")
 ) WITH (
   OIDS=FALSE
