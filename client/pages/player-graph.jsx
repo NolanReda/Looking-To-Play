@@ -1,9 +1,9 @@
 import React from 'react';
-// import AppContext from '../lib/app-context';
+import AppContext from '../lib/app-context';
 import MmChart from '../components/mm-chart';
 import FaceitChart from '../components/faecit-chart';
-// import Dropdown from 'react-dropdown';
 import ChartContext from '../lib/chart-context';
+import Redirect from '../components/redirect';
 
 export default class PlayerGraph extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ export default class PlayerGraph extends React.Component {
   render() {
     const { currentRegion } = this.state;
     const chartValue = { currentRegion };
-    // console.log(currentRegion);
+    if (!this.context.user) return <Redirect to='sign-in' />;
     return (
         <ChartContext.Provider value={chartValue}>
           <div className='row-1'>
@@ -70,4 +70,5 @@ export default class PlayerGraph extends React.Component {
     );
   }
 }
-/* <Dropdown options={options} onChange={this.select} value={defaultOption} placeholder='Select a region' /> */
+
+PlayerGraph.contextType = AppContext;

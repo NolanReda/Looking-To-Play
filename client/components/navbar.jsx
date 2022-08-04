@@ -4,7 +4,7 @@ import AppContext from '../lib/app-context';
 export default class Navbar extends React.Component {
   render() {
 
-    const { user } = this.context;
+    const { user, handleSignOut } = this.context;
 
     return (
       <nav className='navbar'>
@@ -27,6 +27,7 @@ export default class Navbar extends React.Component {
           }
         </div>
         <div className='col-half just-end'>
+          <button className='logout' onClick={handleSignOut}><img className='logout-logo' src={user ? 'images/logout.png' : null} alt="" /></button>
           <a href={user ? '#' : null}><img className='logo-only' src="images/logos/round.png" alt="round-logo" /></a>
         </div>
     </nav>
