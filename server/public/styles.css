@@ -148,6 +148,15 @@ select {
   color: #639cda;
 }
 
+.logout {
+  background-color: transparent;
+  border: none;
+}
+
+.logout-logo {
+  width: 2rem;
+}
+
 @media screen and (max-width: 700px) {
   .flat-logo {
     display: none;
