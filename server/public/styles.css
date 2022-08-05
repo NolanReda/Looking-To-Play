@@ -32,8 +32,14 @@
   text-align: center;
 }
 
-.col-half {
-  flex-basis: 50%;
+.col-links {
+  flex-basis: 60%;
+  padding: 0 10px;
+  display: flex;
+}
+
+.col-logo {
+  flex-basis: 40%;
   padding: 0 10px;
   display: flex;
 }
@@ -157,6 +163,53 @@ select {
   width: 2rem;
 }
 
+.ml-8 {
+  margin-left: 8rem;
+}
+
+.ml-3 {
+  margin-left: 3rem;
+}
+
+.ml-9 {
+  margin-left: 9rem;
+}
+
+.prof-photo {
+  border-radius: 50%;
+  width: 20rem;
+  margin-left: 2rem;
+}
+
+.c-white {
+  color: white !important;
+}
+
+.rank-badge {
+  height: 60px;
+}
+
+.fa-rank {
+  border-radius: 50%;
+  height: 5rem;
+}
+
+.container-prof {
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.steam-id-label {
+  font-size: x-large;
+  margin-right: 1rem;
+  color: #639cda;
+}
+
+#steam-id {
+  border-radius: 6px;
+}
+
 @media screen and (max-width: 700px) {
   .flat-logo {
     display: none;
@@ -167,5 +220,17 @@ select {
   canvas {
     height: 500px !important;
     width: 820px !important;
+  }
+
+  .ml-10 {
+    margin-left: 5rem;
+  }
+
+  .ml-8 {
+    margin-left: 6rem;
+  }
+
+  .prof-photo {
+    margin-left: 1rem;
   }
 }
