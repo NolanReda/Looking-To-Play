@@ -7,6 +7,7 @@ const errorMiddleware = require('./error-middleware');
 const argon2 = require('argon2');
 const authorizationMiddleware = require('./authorization-middleware');
 const jwt = require('jsonwebtoken');
+const fetch = require('node-fetch');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -110,6 +111,16 @@ app.get('/api/users/:region', (req, res, next) => {
       }
       res.status(201).json(result.rows);
     })
+    .catch(err => next(err));
+});
+
+app.get('/api/stats/:appid/:steamid', (req, res, next) => {
+  const { appid, steamid } = req.params;
+  fetch(
+    `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=${appid}&key=${process.env.STEAM_KEY}&steamid=${steamid}`
+  )
+    .then(fetchRes => fetchRes.json())
+    .then(profile => res.json(profile))
     .catch(err => next(err));
 });
 

@@ -6,3 +6,6 @@ http -v GET https://public-api.tracker.gg/v2/csgo/standard/profile/faceit/765611
 
 working steam community api request:
  http --body -v get http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/ appid==730 key==E2D3379379D74F48FE181E7411AC6704 steamid==76561198077457151 > results.json
+
+steamId:
+76561198077457151

@@ -12,6 +12,7 @@ export default class Profile extends React.Component {
     };
     this.displayInput = this.displayInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.getStats = this.getStats.bind(this);
   }
 
   handleChange(event) {
@@ -23,21 +24,17 @@ export default class Profile extends React.Component {
   }
 
   getStats() {
-    fetch(
-      'https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=730&key=E2D3379379D74F48FE181E7411AC6704&steamid=76561198077457151'
-      // {
-      //   headers: {
-      //     Accept: 'application/json',
-      //     'Content-Type': 'application/json',
-      //     'Access-Control-Allow-Origin': null
-      //   }
-      // }
-    );
-    // .then(res => {
-    // console.log(res);
-    // res.json();
-    // })
-    // .then(result => console.log(result));
+    const { steamId } = this.state;
+    const req = {
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    };
+    fetch(`/api/stats/730/${steamId}`, req)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({ userStats: result.playerstats.stats });
+      });
   }
 
   render() {
