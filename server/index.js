@@ -124,6 +124,37 @@ app.get('/api/stats/:appid/:steamid', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/ranks/:mm/:faceit/:user', (req, res, next) => {
+  const { mm, faceit, user } = req.params;
+  const sql = `
+    insert into "userRanks" ("userId", "clientId", "rankId")
+values ($1, 1, $2),
+       ($1, 2, $3)
+  `;
+  const params = [user, mm, faceit];
+  db.query(sql, params)
+    .then(result => res.status(201).json(result))
+    .catch(err => next(err));
+});
+
+app.get('/api/ranks/load/:user', (req, res, next) => {
+  const { user } = req.params;
+  const sql = `
+    select *
+    from "userRanks"
+    where "userId" = $1
+  `;
+  const params = [user];
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows) {
+        throw new ClientError(404, 'not found');
+      }
+      res.status(200).json(result);
+    })
+    .catch(err => next(err));
+});
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
