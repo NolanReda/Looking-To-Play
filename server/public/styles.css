@@ -230,6 +230,10 @@ select {
     width: 820px !important;
   }
 
+  .stats-display {
+    flex-wrap: nowrap !important;
+  }
+
   .ml-10 {
     margin-left: 5rem;
   }

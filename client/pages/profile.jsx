@@ -102,7 +102,7 @@ export default class Profile extends React.Component {
       <div className='container-prof'>
         <div className='mt-5'>
           <h1 className='ml-8'>{user.username}</h1>
-          <img className='prof-photo' src="images/logos/pikachu.jpg" alt="" />
+          <img className='prof-photo' src="images/logos/default.jpg" alt="" />
           <div className='d-flex align-items-center mt-4'>
             <h4 className='c-white '>Matchmaking Rank</h4>
             { this.state.hasRanks === false &&
@@ -170,7 +170,7 @@ export default class Profile extends React.Component {
             </div>
           }
           { this.state.userStats !== null &&
-            <div className='mt-5 d-flex justify-content-center'>
+            <div className='stats-display mt-5 d-flex justify-content-center'>
               <h1>I have the stats!</h1>
             </div>
           }
