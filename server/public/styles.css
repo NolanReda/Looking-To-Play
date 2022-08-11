@@ -265,4 +265,8 @@ select {
   .background {
     width: 104vw;
   }
+
+  .stacked-bg {
+    width: 24rem;
+  }
 }
