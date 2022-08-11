@@ -260,3 +260,9 @@ select {
     width: 99.1vw;
   }
 }
+
+@media screen and (min-width: 450px) {
+  .background {
+    width: 104vw;
+  }
+}
