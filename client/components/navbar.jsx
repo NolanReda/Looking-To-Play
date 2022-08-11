@@ -13,8 +13,8 @@ export default class Navbar extends React.Component {
           { user !== null &&
             <>
               <a className='player-stats' href="#player-stats">Player Stats</a>
-              <a className='spacer font-22 mar-5'> | </a>
-              <a className='find-teammates'>Find Teammates</a>
+              {/* <a className='spacer font-22 mar-5'> | </a>
+              <a className='find-teammates'>Find Teammates</a> */}
             </>
           }
           {
