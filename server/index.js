@@ -8,6 +8,7 @@ const argon2 = require('argon2');
 const authorizationMiddleware = require('./authorization-middleware');
 const jwt = require('jsonwebtoken');
 const fetch = require('node-fetch');
+const uploadsMiddleware = require('./uploads-middleware');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -29,6 +30,23 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   app.use(express.static(publicPath));
 }
+app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
+
+  console.log('req.file:', req.file); // https://www.npmjs.com/package/multer-s3#file-information
+
+  const fileUrl = req.file.location; // The S3 url to access the uploaded file later
+
+  /* "logic" */
+
+  res.end(); // this is just here so my request doesn't hang
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({
+    error: 'an unexpected error occurred (check the server terminal)'
+  });
+});
 
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { username, password, region, timeAvailable } = req.body;
