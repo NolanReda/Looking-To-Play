@@ -33,7 +33,9 @@ values ('user1', '1', 'afternoon', null, null, 'blank'),
        ('user18', '5', 'afternoon', null, null, 'blank'),
        ('user19', '5', 'afternoon', null, null, 'blank'),
        ('user20', '5', 'afternoon', null, null, 'blank'),
-       ('user21', '5', 'afternoon', null, null, 'blank');
+       ('user21', '5', 'afternoon', null, null, 'blank'),
+       ('BT_S0ber', '1', 'evening', null, null, '$argon2i$v=19$m=4096,t=3,p=1$e8uc+NdnXncPeAok3Tn5Zw$bGAkwf56cHa2hbrGjDeIuQeT9gDfe0zRQMmWDtqe8xA'),
+       ('Sample', '1', 'evening', null, null, '$argon2i$v=19$m=4096,t=3,p=1$DGv3ii2IvrBajrTMIUOKXw$8KzQIHZ51Vc6t7pFOf2vREutGc9t9BN3FBlwc7f6CSQ');
 
 insert into "gameClients" ("name")
      values ('steam'),
@@ -127,4 +129,10 @@ insert into "userRanks" ("userId", "clientId", "rankId")
             ('20', '1', '6'),
             ('20', '2',  '23'),
 
-            ('21', '1', '16');
+            ('21', '1', '16'),
+
+            ('22', '1', '10'),
+            ('22', '2', '22'),
+
+            ('23', '1', '18'),
+            ('23', '2', '28');

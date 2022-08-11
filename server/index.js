@@ -30,14 +30,10 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   app.use(express.static(publicPath));
 }
+
 app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
-
   console.log('req.file:', req.file); // https://www.npmjs.com/package/multer-s3#file-information
-
   const fileUrl = req.file.location; // The S3 url to access the uploaded file later
-
-  /* "logic" */
-
   res.end(); // this is just here so my request doesn't hang
 });
 
