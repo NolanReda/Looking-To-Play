@@ -263,7 +263,7 @@ select {
 
 @media screen and (max-width: 450px) {
   .background {
-    width: 104vw;
+    width: 100vw;
   }
 
   .stacked-bg {
