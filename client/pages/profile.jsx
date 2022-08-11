@@ -102,7 +102,7 @@ export default class Profile extends React.Component {
       <div className='container-prof'>
         <div className='mt-5'>
           <h1 className='ml-8'>{user.username}</h1>
-          <img className='prof-photo' src="images/logos/default.jpg" alt="" />
+          <img className='prof-photo' src="/images/logos/default.jpg" alt="" />
           <div className='d-flex align-items-center mt-4'>
             <h4 className='c-white '>Matchmaking Rank</h4>
             { this.state.hasRanks === false &&
@@ -128,13 +128,13 @@ export default class Profile extends React.Component {
               </select>
             }
             { this.state.hasRanks === true &&
-              <img className='rank-badge ms-3' src={`images/${this.state.mmrank}.png`} alt="" />
+              <img className='rank-badge ms-3' src={`/images/${this.state.mmrank}.png`} alt="" />
             }
           </div>
           <div className='d-flex align-items-center mt-4'>
             <h3 className='c-white'>Faceit Rank</h3>
             {this.state.hasRanks === true &&
-              <img className='fa-rank ml-8' src={`images/${this.state.faceitrank}.png`} alt="" />
+              <img className='fa-rank ml-8' src={`/images/${this.state.faceitrank}.png`} alt="" />
             }
             {this.state.hasRanks === false &&
               <select className='f-dropdown' onChange={this.faceitSelect}>
