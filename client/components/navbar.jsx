@@ -8,7 +8,7 @@ export default class Navbar extends React.Component {
 
     return (
       <nav className='navbar'>
-        <div className='col-half align-cent'>
+        <div className='col-links align-cent'>
           <img className='flat-logo' src="images/logos/flat.png" alt="flat-logo" />
           { user !== null &&
             <>
@@ -26,7 +26,7 @@ export default class Navbar extends React.Component {
             </>
           }
         </div>
-        <div className='col-half just-end'>
+        <div className='col-logo just-end'>
           <button className='logout' onClick={handleSignOut}><img className='logout-logo' src={user ? 'images/logout.png' : null} alt="" /></button>
           <a href={user ? '#' : null}><img className='logo-only' src="images/logos/round.png" alt="round-logo" /></a>
         </div>

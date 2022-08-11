@@ -7,6 +7,8 @@ const errorMiddleware = require('./error-middleware');
 const argon2 = require('argon2');
 const authorizationMiddleware = require('./authorization-middleware');
 const jwt = require('jsonwebtoken');
+const fetch = require('node-fetch');
+const uploadsMiddleware = require('./uploads-middleware');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -28,6 +30,23 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   app.use(express.static(publicPath));
 }
+app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
+
+  console.log('req.file:', req.file); // https://www.npmjs.com/package/multer-s3#file-information
+
+  const fileUrl = req.file.location; // The S3 url to access the uploaded file later
+
+  /* "logic" */
+
+  res.end(); // this is just here so my request doesn't hang
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({
+    error: 'an unexpected error occurred (check the server terminal)'
+  });
+});
 
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { username, password, region, timeAvailable } = req.body;
@@ -109,6 +128,47 @@ app.get('/api/users/:region', (req, res, next) => {
         throw new ClientError(200, 'no users found');
       }
       res.status(201).json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+app.get('/api/stats/:appid/:steamid', (req, res, next) => {
+  const { appid, steamid } = req.params;
+  fetch(
+    `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=${appid}&key=${process.env.STEAM_KEY}&steamid=${steamid}`
+  )
+    .then(fetchRes => fetchRes.json())
+    .then(profile => res.json(profile))
+    .catch(err => next(err));
+});
+
+app.post('/api/ranks/:mm/:faceit/:user', (req, res, next) => {
+  const { mm, faceit, user } = req.params;
+  const sql = `
+    insert into "userRanks" ("userId", "clientId", "rankId")
+values ($1, 1, $2),
+       ($1, 2, $3)
+  `;
+  const params = [user, mm, faceit];
+  db.query(sql, params)
+    .then(result => res.status(201).json(result))
+    .catch(err => next(err));
+});
+
+app.get('/api/ranks/load/:user', (req, res, next) => {
+  const { user } = req.params;
+  const sql = `
+    select *
+    from "userRanks"
+    where "userId" = $1
+  `;
+  const params = [user];
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows) {
+        throw new ClientError(404, 'not found');
+      }
+      res.status(200).json(result);
     })
     .catch(err => next(err));
 });

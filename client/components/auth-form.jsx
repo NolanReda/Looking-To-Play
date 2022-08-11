@@ -11,6 +11,7 @@ export default class AuthForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.testProfile = this.testProfile.bind(this);
   }
 
   handleChange(event) {
@@ -41,6 +42,11 @@ export default class AuthForm extends React.Component {
     event.target.reset();
   }
 
+  testProfile(event) {
+    this.setState({ username: 'Sample', password: '1234' });
+    event.preventDefault();
+  }
+
   render() {
 
     const { action } = this.props;
@@ -54,13 +60,13 @@ export default class AuthForm extends React.Component {
           <label className='form-label' htmlFor="username">
             Username
           </label>
-          <input onChange={this.handleChange} placeholder='Username' className='form-control' required autoFocus type="text" name="username" id="username" />
+          <input onChange={this.handleChange} value={this.state.username} placeholder='Username' className='form-control' required autoFocus type="text" name="username" id="username" />
         </div>
         <div className='mb-3'>
           <label className='form-label' htmlFor="password">
             Password
           </label>
-          <input onChange={this.handleChange} placeholder='Password' className='form-control' required autoFocus type="password" name="username" id="password" />
+          <input onChange={this.handleChange} value={this.state.password} placeholder='Password' className='form-control' required autoFocus type="password" name="username" id="password" />
         </div>
       { action === 'sign-up' &&
         <>
@@ -98,8 +104,13 @@ export default class AuthForm extends React.Component {
         </div>
         </>
   }
-        <div className='dis-flex just-cent'>
+        <div className='d-flex justify-content-center'>
           <button className='btn btn-info btn-lg mt-5' type="submit">{altBtnText}</button>
+        </div>
+        <div className='d-flex justify-content-center'>
+          <button onClick={this.testProfile} type="button" className='btn btn-info btn-lg mt-3'>
+            Test Profile
+          </button>
         </div>
       </form>
     );
