@@ -261,12 +261,12 @@ select {
   }
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (max-width: 450px) {
   .background {
     width: 104vw;
   }
 
   .stacked-bg {
-    width: 24rem;
+    width: 22rem;
   }
 }
