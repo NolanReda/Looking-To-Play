@@ -1,6 +1,6 @@
 .background {
   height: 140vh;
-  width: 99vw;
+  width: 99.1vw;
   background-color: #000123;
   position: absolute;
 }
@@ -222,6 +222,10 @@ select {
   .flat-logo {
     display: none;
   }
+
+  .background {
+    width: 100vw;
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -244,5 +248,15 @@ select {
 
   .prof-photo {
     margin-left: 1rem;
+  }
+
+  .background {
+    width: 97.5vw;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .background {
+    width: 99.1vw;
   }
 }
