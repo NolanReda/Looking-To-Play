@@ -1,3 +1,5 @@
+![282826407_1100615380826353_2247006890310657293_n](https://user-images.githubusercontent.com/99226300/184266274-04c38114-a77f-406e-a077-3e50a3a11ec1.png)
+
 # lookingtoPLAY
 
 A full stack JavaScript solo project. Live, in progress app down below.
@@ -25,6 +27,7 @@ I built LTP as a bit of a passion project. I've been playing CS on and off for o
   * Argon2
   * Steam Community API
   * AWS-S3
+___
 
 ### Key Features
   * Players can create accounts, sign in and sign out
@@ -33,8 +36,18 @@ I built LTP as a bit of a passion project. I've been playing CS on and off for o
   * Players can view other user profiles to see game stats and rank information [in progress]
   * Players can add other users to their teammates list [in progress]
   * Players can edit the information in their account [in progress]
-
+___
 
 ### Features to be added after production
-  * Players will be able to form groups or "teams" with chats associated with that group.
   * Players will be able to send messages to other players
+  * Players will be able to form groups or "teams" with chats associated with that group.
+___
+
+### In Action
+
+___
+
+### Requirements to run
+
+___
+
