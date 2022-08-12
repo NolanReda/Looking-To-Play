@@ -75,5 +75,17 @@ A few thing from NPM
   20. "pg": "^8.7.3",
   21. "react": "^18.2.0",
   22. "react-dom": "^18.2.0"
+
+You'll also need to understand how to configure Chart.js
+
+  1. Make sure to understand what type of graph you need and which plugins that graph takes and import them from the package
+  2. Using the Webpack compiler you need to use a bundling function in the form of Chart.register(plugins)
+  3. After this you can use Chart.js as normal, but pay attention to any errors that you get back as they may tell you whether you require more plugins, just add them you your import and register function if that happens.
+
+You'll need to register with the Steam Community API
+
+  1. Create an account with Steam [here](https://store.steampowered.com/join)
+  2. You can then go to the dev portal for the API and obtain a Web API Key [here](https://steamcommunity.com/dev)
+
 ___
 
