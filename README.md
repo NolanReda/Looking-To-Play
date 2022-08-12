@@ -44,10 +44,36 @@ ___
 ___
 
 ### In Action
+![ltp-chart](https://user-images.githubusercontent.com/99226300/184453094-018fbc36-9ccb-4c70-82b4-3c9e7558829f.gif)
 
 ___
 
-### Requirements to run
+### Getting Started
+If you want to recreate this project you will need the following things.
 
+A few thing from NPM
+    
+  1. "@babel/core": "^7.18.5",
+  2. "@babel/plugin-transform-react-jsx": "^7.17.12",
+  3. "@babel/preset-env": "^7.18.2",  
+  4. "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",    
+  5. "babel-loader": "^8.2.5",
+  6. "webpack": "^5.73.0",
+  7. "webpack-cli": "^4.10.0",
+  8. "webpack-dev-middleware": "^5.3.3",
+  9. "webpack-hot-middleware": "^2.25.1" 
+  10. "@aws-sdk/client-s3": "^3.145.0",
+  11. "argon2": "^0.28.5",
+  12. "chart.js": "^3.8.2",
+  13. "dotenv": "^16.0.1",
+  14. "express": "^4.18.1",
+  15."jsonwebtoken": "^8.5.1",
+  16. "jwt-decode": "^3.1.2",
+  17. "multer": "^1.4.5-lts.1",
+  18. "multer-s3": "^3.0.1",
+  19. "node-fetch": "^2.6.7",
+  20. "pg": "^8.7.3",
+  21. "react": "^18.2.0",
+  22. "react-dom": "^18.2.0"
 ___
 
