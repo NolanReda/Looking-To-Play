@@ -257,6 +257,12 @@ select {
 
 @media screen and (min-width: 800px) {
   .background {
+    width: 98.9vw;
+  }
+}
+
+@media screen and (min-width: 1680px) {
+  .background {
     width: 99.1vw;
   }
 }
