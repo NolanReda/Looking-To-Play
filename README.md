@@ -48,6 +48,13 @@ ___
 
 ___
 
+### Requirements
+  * PostgreSQL
+  * Node.js
+  * AWS-S3 bucket
+
+___
+
 ### Getting Started
 If you want to recreate this project you will need the following things.
 
@@ -87,5 +94,13 @@ You'll need to register with the Steam Community API
   1. Create an account with Steam [here](https://store.steampowered.com/join)
   2. You can then go to the dev portal for the API and obtain a Web API Key [here](https://steamcommunity.com/dev)
 
-___
+Then you'll need to create a .env file containing
 
+  1. What port you'll be using while you build locally
+  2. the name for your TOKEN_SECRET
+  3. your database URL
+  4. your Steam API Key
+  5. your AWS bucket information
+
+Once you have all those steps completed you'll be ready to get coding.
+___
