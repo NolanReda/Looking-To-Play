@@ -73,7 +73,7 @@ export default class GetStats extends React.Component {
           this.state.clicked === true &&
           <div className='mt-5 d-flex justify-content-center'>
             <label className='steam-id-label' htmlFor="steam-id">
-              Enter Steam ID
+              Steam ID
             </label>
             <input onChange={this.handleChange} type="text" name="steamId" id="steam-id" />
           </div>

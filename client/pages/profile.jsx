@@ -71,8 +71,9 @@ export default class Profile extends React.Component {
     if (!this.context.user) return <Redirect to='sign-in' />;
 
     return (
-      <div className='container-prof'>
-        <div className='mt-5'>
+      <>
+      <div className='container-prof d-flex me-5 ms-5'>
+        <div className='mt-5 me-5'>
           <h1 className='ml-8'>{user.username}</h1>
           <img className='prof-photo' src="/images/logos/default.jpg" alt="" />
           <div className='d-flex align-items-center mt-4'>
@@ -125,10 +126,18 @@ export default class Profile extends React.Component {
           </div>
           <GetStats />
         </div>
-        <div className='stats-div ms-5'>
-          <h1 className='ml-5'>Player Stats</h1>
+        <div className='stats-div mt-5 ms-5 me-5'>
+          <h1 className='mb-5 ml-8'>Player Stats</h1>
+          <h3 className='mb-5'>Win/Loss % ------</h3>
+          <h3 className='mb-5'>Headhot % ------</h3>
+          <h3 className='mb-5'>K/D ------</h3>
+        </div>
+        <div className='mt-5 ms-5'>
+          <button className='btn btn-lg btn-info'>Add Teammate</button>
         </div>
       </div>
+
+      </>
     );
   }
 }
