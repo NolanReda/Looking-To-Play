@@ -8,7 +8,7 @@ const argon2 = require('argon2');
 const authorizationMiddleware = require('./authorization-middleware');
 const jwt = require('jsonwebtoken');
 const fetch = require('node-fetch');
-const uploadsMiddleware = require('./uploads-middleware');
+// const uploadsMiddleware = require('./uploads-middleware');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -31,11 +31,11 @@ if (process.env.NODE_ENV === 'development') {
   app.use(express.static(publicPath));
 }
 
-app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
-  console.log('req.file:', req.file); // https://www.npmjs.com/package/multer-s3#file-information
-  const fileUrl = req.file.location; // The S3 url to access the uploaded file later
-  res.end(); // this is just here so my request doesn't hang
-});
+// app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
+//   console.log('req.file:', req.file); // https://www.npmjs.com/package/multer-s3#file-information
+//   const fileUrl = req.file.location; // The S3 url to access the uploaded file later
+//   res.end(); // this is just here so my request doesn't hang
+// });
 
 app.use((err, req, res, next) => {
   console.error(err);
@@ -166,6 +166,19 @@ app.get('/api/ranks/load/:user', (req, res, next) => {
       }
       res.status(200).json(result);
     })
+    .catch(err => next(err));
+});
+
+app.post('/api/users/stats/:userId/:stats', (req, res, next) => {
+  const { userId, stats } = req.params;
+  const sql = `
+  insert into "Users" ("recentStats")
+      values ($1)
+      where userId = $2
+  `;
+  const params = [stats, userId];
+  db.query(sql, params)
+    .then(result => res.status(201).json(result))
     .catch(err => next(err));
 });
 
