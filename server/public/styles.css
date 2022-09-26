@@ -89,6 +89,10 @@ h1 {
   color: rgb(255, 255, 255);
 }
 
+h3 {
+  color: rgb(255, 255, 255);
+}
+
 .row-three-fifth {
   display: flex;
   justify-content: center;
@@ -195,7 +199,7 @@ select {
 }
 
 .container-prof {
-  max-width: 500px;
+  width: 100vw;
   display: flex;
   justify-content: center;
 }
@@ -216,6 +220,10 @@ select {
 
 .f-dropdown {
   margin: 0 0 0 80px;
+}
+
+.vw-100 {
+  width: 100vw;
 }
 
 @media screen and (max-width: 700px) {
