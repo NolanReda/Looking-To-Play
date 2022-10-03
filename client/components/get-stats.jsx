@@ -65,13 +65,13 @@ export default class GetStats extends React.Component {
         }
         {
           this.state.userStats === null &&
-          <div className='mt-5 d-flex justify-content-center'>
+          <div className='mt-5 d-flex justify-content-center ml-2'>
             <button onClick={!this.state.clicked ? this.displayInput : this.getStats} className='c-white btn btn-lg btn-info'>{!this.state.clicked ? 'Get stats from Steam account' : 'Get stats now'}</button>
           </div>
         }
         {
           this.state.clicked === true &&
-          <div className='mt-5 d-flex justify-content-center'>
+          <div className='mt-5 d-flex justify-content-center ml-2'>
             <label className='steam-id-label' htmlFor="steam-id">
               Steam ID
             </label>

@@ -79,7 +79,7 @@ export default class Profile extends React.Component {
         <div className='mt-5 me-5'>
           <h1 className='ml-8'>{user.username}</h1>
           <img className='prof-photo' src="/images/logos/default.jpg" alt="" />
-          <div className='d-flex align-items-center mt-4'>
+            <div className='d-flex align-items-center mt-4 ml-6 wrap'>
             <h4 className='c-white '>Matchmaking Rank</h4>
             { this.state.hasRanks === false &&
               <select className='m-dropdown' onChange={this.mmSelect}>
@@ -107,10 +107,10 @@ export default class Profile extends React.Component {
               <img className='rank-badge ms-3' src={`/images/${this.state.mmrank}.png`} alt="" />
             }
           </div>
-          <div className='d-flex align-items-center mt-4'>
+          <div className='d-flex align-items-center mt-4 ml-8 wrap'>
             <h3 className='c-white'>Faceit Rank</h3>
             {this.state.hasRanks === true &&
-              <img className='fa-rank ml-8' src={`/images/${this.state.faceitrank}.png`} alt="" />
+              <img className='fa-rank ml-8 ml-2' src={`/images/${this.state.faceitrank}.png`} alt="" />
             }
             {this.state.hasRanks === false &&
               <select className='f-dropdown' onChange={this.faceitSelect}>
@@ -129,7 +129,7 @@ export default class Profile extends React.Component {
           </div>
           <GetStats />
         </div>
-        <div className='stats-div mt-5 ms-5 me-5'>
+        {/* <div className='stats-div mt-5 ms-5 me-5'>
           <h1 className='mb-5 ml-8'>Player Stats</h1>
           <h3 className='mb-5'>Win/Loss % ------</h3>
           <h3 className='mb-5'>Headhot % ------</h3>
@@ -137,7 +137,7 @@ export default class Profile extends React.Component {
         </div>
         <div className='mt-5 ms-5'>
           <button className='btn btn-lg btn-info'>Add Teammate</button>
-        </div>
+        </div> */}
       </div>
 
       </>
