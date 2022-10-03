@@ -17,6 +17,9 @@ export default class Profile extends React.Component {
   }
 
   componentDidMount() {
+    if (this.context.user === null) {
+      return;
+    }
     const { userId } = this.context.user;
     const req = {
       headers: {
