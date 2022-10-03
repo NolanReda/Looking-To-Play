@@ -1,6 +1,6 @@
 .background {
-  height: 140vh;
-  width: 99.1vw;
+  height: 139vh;
+  width: 100vw;
   background-color: #000123;
   position: absolute;
 }
@@ -199,7 +199,7 @@ select {
 }
 
 .container-prof {
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   justify-content: center;
 }
@@ -259,7 +259,7 @@ select {
   }
 
   .background {
-    width: 97.5vw;
+    width: 97.7vw;
   }
 }
 
@@ -272,12 +272,34 @@ select {
 @media screen and (min-width: 1680px) {
   .background {
     width: 99.1vw;
+    height: 139vh;
+  }
+
+  .container-prof {
+    width: 100vw;
+  }
+
+  .navbar {
+    width: 99.5vw;
   }
 }
 
 @media screen and (max-width: 450px) {
   .background {
-    width: 100vw;
+    width: 105vw;
+    height: 100vh;
+  }
+
+  .ml-6 {
+    margin-left: 6.5rem;
+  }
+
+  .ml-2 {
+    margin-left: ;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
   }
 
   .stacked-bg {
