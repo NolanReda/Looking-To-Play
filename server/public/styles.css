@@ -175,6 +175,10 @@ select {
   margin-left: 3rem;
 }
 
+.ml-0 {
+  margin-left: 0;
+}
+
 .ml-9 {
   margin-left: 9rem;
 }

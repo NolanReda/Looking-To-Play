@@ -1,5 +1,5 @@
 import React from 'react';
-// import AppContext from '../lib/app-context';
+import AppContext from '../lib/app-context';
 
 export default class GetStats extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ export default class GetStats extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.displayInput = this.displayInput.bind(this);
     this.getStats = this.getStats.bind(this);
+    // this.storeStats = this.storeStats.bind(this);
   }
 
   handleChange(event) {
@@ -54,6 +55,20 @@ export default class GetStats extends React.Component {
     this.setState({ clicked: false });
   }
 
+  // componentDidUpdate() {
+  //   if (!this.state.userStats) {
+  //     return;
+  //   }
+  //   // const { userStats } = this.state;
+  //   // const { userId } = this.context.user;
+  //   // const req = {
+  //     headers: {
+  //       'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+  //     }
+  //   };
+  //   fetch('/api/users/');
+  // }
+
   render() {
     return (
       <div>
@@ -88,3 +103,5 @@ export default class GetStats extends React.Component {
     );
   }
 }
+
+GetStats.contextType = AppContext;
