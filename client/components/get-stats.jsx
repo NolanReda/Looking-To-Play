@@ -24,13 +24,14 @@ export default class GetStats extends React.Component {
   }
 
   getStats() {
+    const { userId } = this.context.user;
     const { steamId } = this.state;
     const req = {
       headers: {
         'X-Access-Token': window.localStorage.getItem('react-context-jwt')
       }
     };
-    fetch(`/api/stats/730/${steamId}`, req)
+    fetch(`/api/stats/730/${steamId}/${userId}`, req)
       .then(res => res.json())
       .then(result => {
         const statArray = [];
@@ -43,13 +44,13 @@ export default class GetStats extends React.Component {
             statArray.push(stats[i]);
           }
           this.setState({ userStats: statArray });
-          const req2 = {
-            headers: {
-              'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-            }
-          };
-          fetch(`/api/users/stats/${this.context.user}/${this.state.userStats}`, req2)
-            .then(response => response.json());
+          // const req2 = {
+          //   headers: {
+          //     'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+          //   }
+          // };
+          // fetch(`/api/users/stats/${this.context.user}/${this.state.userStats}`, req2)
+          //   .then(response => response.json());
         }
       });
     this.setState({ clicked: false });

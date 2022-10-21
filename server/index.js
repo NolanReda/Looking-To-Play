@@ -128,14 +128,43 @@ app.get('/api/users/:region', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.get('/api/stats/:appid/:steamid', (req, res, next) => {
-  const { appid, steamid } = req.params;
+app.get('/api/stats/:appid/:steamid/:userid', (req, res, next) => {
+  const { appid, steamid, userId } = req.params;
   fetch(
     `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=${appid}&key=${process.env.STEAM_KEY}&steamid=${steamid}`
   )
     .then(fetchRes => fetchRes.json())
-    .then(profile => res.json(profile))
+    .then(profile => {
+      const sql = `
+      insert into "Users" ("recentStats")
+      values ($1)
+      where "userId" = $2
+    `;
+      const params = [profile.playerstats.stats, userId];
+      db.query(sql, params)
+        .then(result => {
+          if (result.rows.length === 0) {
+            throw new ClientError(200, 'no users found');
+          }
+          res.status(201).send(result.rows);
+        })
+        .catch(err => next(err));
+    })
     .catch(err => next(err));
+  // const sql = `
+  //     insert into "Users" ("recentStats")
+  //     values ($1)
+  //     where "userId" = $2
+  //   `;
+  // const params = [res.playerstats.stats, userId];
+  // db.query(sql, params)
+  //   .then(result => {
+  //     if (result.rows.length === 0) {
+  //       throw new ClientError(200, 'no users found');
+  //     }
+  //     res.status(201).send(result.rows);
+  //   })
+  //   .catch(err => next(err));
 });
 
 app.post('/api/ranks/:mm/:faceit/:user', (req, res, next) => {
