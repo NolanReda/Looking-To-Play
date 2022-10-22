@@ -24,6 +24,7 @@ export default class GetStats extends React.Component {
   }
 
   getStats() {
+    // console.log(this.context);
     const { userId } = this.context.user;
     const { steamId } = this.state;
     const req = {
