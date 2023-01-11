@@ -12,7 +12,7 @@ export default class GetStats extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.displayInput = this.displayInput.bind(this);
     this.getStats = this.getStats.bind(this);
-    // this.storeStats = this.storeStats.bind(this);
+    // this.addStats = this.addStats.bind(this);
   }
 
   handleChange(event) {
@@ -23,9 +23,55 @@ export default class GetStats extends React.Component {
     this.setState({ clicked: true });
   }
 
+  componentDidUpdate() {
+    const { userStats } = this.state;
+    const { userId } = this.context.user;
+    // console.log('userId:', userId);
+    // console.log(userStats);
+    if (userStats !== null) {
+      const statsPrep = `[${[
+        `name: ${userStats[0].name}, value: ${userStats[0].value}`,
+        `name: ${userStats[1].name}, value: ${userStats[1].value}`,
+        `name: ${userStats[2].name}, value: ${userStats[2].value}`,
+        `name: ${userStats[3].name}, value: ${userStats[3].value}`,
+        `name: ${userStats[4].name}, value: ${userStats[4].value}`
+      ]}]`;
+      // console.log(statsPrep);
+
+      const req = {
+        method: 'POST',
+        headers: {
+          'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+        }
+      };
+      fetch(`/api/users/stats/${userId}/${statsPrep}`, req)
+        .then(res => res.json())
+        .then(result => {
+          // console.log(result);
+        });
+    }
+  }
+
+  // addStats() {
+  //   const { userStats } = this.state;
+  //   const { userId } = this.context.user;
+  //   // const timer = setTimeout(() => {
+  //   //   console.log('userstats:', userStats, 'userId:', userId);
+  //   // }, 3000);
+  //   const req = {
+  //     headers: {
+  //       method: 'POST',
+  //       'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+  //     }
+  //   };
+  //   fetch(`/api/users/stats/${userId}/${userStats}`, req)
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       console.log(result);
+  //     });
+  // }
+
   getStats() {
-    // console.log(this.context);
-    // const { userId } = this.context.user;
     const { steamId } = this.state;
     const req = {
       headers: {
@@ -35,27 +81,18 @@ export default class GetStats extends React.Component {
     fetch(`/api/stats/730/${steamId}`, req)
       .then(res => res.json())
       .then(result => {
-        // console.log(result);
         const statArray = [];
         const stats = result.playerstats.stats;
         for (let i = 0; i < stats.length; i++) {
           if (stats[i].name === 'total_kills_headshot' || stats[i].name === 'total_kills' || stats[i].name === 'total_deaths' || stats[i].name === 'total_wins' || stats[i].name === 'total_matches_played') {
             statArray.push(stats[i]);
           }
-          // if (stats[i].name === 'total_rounds_map_de_dust2' || stats[i].name === 'total_rounds_map_de_inferno' || stats[i].name === 'total_rounds_map_de_nuke' || stats[i].name === 'total_rounds_map_de_vertigo' || stats[i].name === 'total_rounds_map_de_mirage' || stats[i].name === 'total_rounds_map_de_overpass') {
-          //   statArray.push(stats[i]);
-          // }
           this.setState({ userStats: statArray });
-          // const req2 = {
-          //   headers: {
-          //     'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-          //   }
-          // };
-          // fetch(`/api/users/stats/${this.context.user}/${this.state.userStats}`, req2)
-          //   .then(response => response.json());
         }
       });
+    // .then(this.addStats());
     this.setState({ clicked: false });
+    // this.addStats();
   }
 
   // componentDidUpdate() {

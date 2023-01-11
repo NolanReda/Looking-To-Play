@@ -183,12 +183,13 @@ app.get('/api/ranks/load/:user', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// setting user stats
 app.post('/api/users/stats/:userId/:stats', (req, res, next) => {
   const { userId, stats } = req.params;
   const sql = `
-  insert into "Users" ("recentStats")
-      values ($1)
-      where userId = $2
+  UPDATE "Users"
+  SET "recentStats" =  ($1)
+  WHERE "userId" = $2
   `;
   const params = [stats, userId];
   db.query(sql, params)
