@@ -58,7 +58,7 @@ ___
 ### Getting Started
 If you want to recreate this project you will need the following things.
 
-A few thing from NPM
+A few things from NPM
     
   1. "@babel/core": "^7.18.5",
   2. "@babel/plugin-transform-react-jsx": "^7.17.12",
